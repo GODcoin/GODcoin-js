@@ -18,8 +18,8 @@
     "lint": "eslint './src/**' './tests/**'"
   },
   "peerDependencies": {
-    "@types/big.js": "^4.0.5",
-    "@types/long": "^4.0.0"
+    "@types/big.js": "^6.0.0",
+    "@types/long": "^4.0.1"
   },
   "dependencies": {
     "big.js": "^6.0.2",
