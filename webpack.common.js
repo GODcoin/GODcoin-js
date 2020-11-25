@@ -1,4 +1,5 @@
-const merge = require('webpack-merge');
+const nodeExternals = require('webpack-node-externals');
+const { merge } = require('webpack-merge');
 const path = require('path');
 
 const common = {
@@ -29,13 +30,9 @@ const node = merge(common, {
   output: {
     filename: 'index.js',
   },
-  externals: {
-    'big.js': 'big.js',
-    'bs58': 'bs58',
-    'long': 'long',
-    'sha.js': 'sha.js',
-    'tweetnacl': 'tweetnacl'
-  },
+  externals: [
+    nodeExternals(),
+  ],
 });
 
 const web = merge(common, {

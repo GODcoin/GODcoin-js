@@ -2,11 +2,7 @@ import { generateKeyPair, ByteBuffer, TxVariant, BodyType, MintTxV0, Asset, Msg,
 import Long from 'long';
 
 test('fail to deserialize invalid request type id', (): void => {
-  const buf = ByteBuffer.alloc(128)
-    .writeUint32(0)
-    .writeUint8(BodyType.Request)
-    .writeUint8(0xff)
-    .resetOffset();
+  const buf = ByteBuffer.alloc(128).writeUint32(0).writeUint8(BodyType.Request).writeUint8(0xff).resetOffset();
   expect((): void => {
     Msg.deserialize(buf);
   }).toThrowError('unknown request id: 255');
@@ -21,9 +17,7 @@ test('serialize broadcast request', (): void => {
         signaturePairs: [],
       },
       {
-        to: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
+        to: generateKeyPair().publicKey.toScript().hash(),
         amount: Asset.fromString('100.00000 GRAEL'),
         attachment: new Uint8Array([1, 2, 3, 4]),
         attachmentName: 'hello_world.txt',
@@ -190,9 +184,7 @@ test('serialize get address info request', (): void => {
     type: BodyType.Request,
     req: {
       type: RpcType.GetAddressInfo,
-      addr: generateKeyPair()
-        .publicKey.toScript()
-        .hash(),
+      addr: generateKeyPair().publicKey.toScript().hash(),
     },
   });
 

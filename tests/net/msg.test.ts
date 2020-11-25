@@ -2,10 +2,7 @@ import { ByteBuffer, Msg, BodyType, NetworkError, NetErrorKind } from '../../src
 import Long from 'long';
 
 test('fail to deserialize invalid response type id', (): void => {
-  const buf = ByteBuffer.alloc(128)
-    .writeUint32(0)
-    .writeUint8(0xff)
-    .resetOffset();
+  const buf = ByteBuffer.alloc(128).writeUint32(0).writeUint8(0xff).resetOffset();
   expect((): void => {
     Msg.deserialize(buf);
   }).toThrowError('unknown msg body id: 255');

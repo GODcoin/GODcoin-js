@@ -205,20 +205,9 @@ export class ByteBuffer {
 }
 
 export function zigzagEncode(from: Long): Long {
-  return from
-    .shiftLeft(1)
-    .xor(from.shiftRight(63))
-    .toUnsigned();
+  return from.shiftLeft(1).xor(from.shiftRight(63)).toUnsigned();
 }
 
 export function zigzagDecode(from: Long): Long {
-  return from
-    .shiftRightUnsigned(1)
-    .xor(
-      from
-        .and(1)
-        .toSigned()
-        .negate(),
-    )
-    .toSigned();
+  return from.shiftRightUnsigned(1).xor(from.and(1).toSigned().negate()).toSigned();
 }

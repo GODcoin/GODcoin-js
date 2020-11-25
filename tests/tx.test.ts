@@ -51,9 +51,7 @@ test('serialize mint tx v0', (): void => {
         signaturePairs: [],
       },
       {
-        to: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
+        to: generateKeyPair().publicKey.toScript().hash(),
         amount: Asset.fromString('100.00000 GRAEL'),
         attachment: new Uint8Array([1, 2, 3, 4]),
         attachmentName: 'hello_world.txt',
@@ -79,9 +77,7 @@ test('serialize mint tx v0 with empty attachment name', (): void => {
         signaturePairs: [],
       },
       {
-        to: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
+        to: generateKeyPair().publicKey.toScript().hash(),
         amount: Asset.fromString('100.00000 GRAEL'),
         attachment: new Uint8Array([1, 2, 3, 4]),
         attachmentName: '',
@@ -107,9 +103,7 @@ test('serialize reward tx v0', (): void => {
         signaturePairs: [],
       },
       {
-        to: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
+        to: generateKeyPair().publicKey.toScript().hash(),
         rewards: Asset.fromString('123.45678 GRAEL'),
       },
     ),
@@ -129,12 +123,8 @@ test('serialize transfer tx v0', (): void => {
         signaturePairs: [],
       },
       {
-        from: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
-        to: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
+        from: generateKeyPair().publicKey.toScript().hash(),
+        to: generateKeyPair().publicKey.toScript().hash(),
         amount: Asset.fromString('100000.00000 GRAEL'),
         script: generateKeyPair().publicKey.toScript(),
         memo: new Uint8Array([0x00, 0x10, 0x20, 0x30, 0x50, 0xaa, 0xff]),
@@ -156,12 +146,8 @@ test('serialize transfer tx v0 with custom buffer', (): void => {
         signaturePairs: [],
       },
       {
-        from: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
-        to: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
+        from: generateKeyPair().publicKey.toScript().hash(),
+        to: generateKeyPair().publicKey.toScript().hash(),
         amount: Asset.fromString('100000.00000 GRAEL'),
         script: generateKeyPair().publicKey.toScript(),
         memo: new Uint8Array([0x00, 0x10, 0x20, 0x30, 0x50, 0xaa, 0xff]),
@@ -185,12 +171,8 @@ test('serialize transfer tx v0 with empty memo', (): void => {
         signaturePairs: [],
       },
       {
-        from: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
-        to: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
+        from: generateKeyPair().publicKey.toScript().hash(),
+        to: generateKeyPair().publicKey.toScript().hash(),
         amount: Asset.fromString('100000.00000 GRAEL'),
         script: generateKeyPair().publicKey.toScript(),
         memo: new Uint8Array(0),
@@ -212,12 +194,8 @@ test('sign and verify transfer tx v0', (): void => {
         signaturePairs: [],
       },
       {
-        from: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
-        to: generateKeyPair()
-          .publicKey.toScript()
-          .hash(),
+        from: generateKeyPair().publicKey.toScript().hash(),
+        to: generateKeyPair().publicKey.toScript().hash(),
         amount: Asset.fromString('100000.00000 GRAEL'),
         script: generateKeyPair().publicKey.toScript(),
         memo: new Uint8Array([0x00, 0x10, 0x20, 0x30, 0x50, 0xaa, 0xff]),

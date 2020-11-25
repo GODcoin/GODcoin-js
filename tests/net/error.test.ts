@@ -9,9 +9,7 @@ import {
 } from '../../src';
 
 test('fail to deserialize invalid type id net error', (): void => {
-  const buf = ByteBuffer.alloc(1)
-    .writeUint8(0xff)
-    .resetOffset();
+  const buf = ByteBuffer.alloc(1).writeUint8(0xff).resetOffset();
   expect((): void => {
     NetworkError.deserialize(buf);
   }).toThrowError('unknown error kind: 255');
